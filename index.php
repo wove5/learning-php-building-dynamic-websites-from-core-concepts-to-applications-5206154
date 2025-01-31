@@ -32,3 +32,11 @@ $walt = new Person('Walt', 'Disney');
 $bob = new Person('Bob', 'Iger');
 
 $people = [$rob, $joe, $erin, $steve, $bill, $walt, $bob];
+
+usort($people, function ($a, $b) {
+  return [$a->get_last_name(), $a->get_first_name()] <=>  [$b->get_last_name(), $b->get_first_name()];
+});
+
+foreach ($people as $person) {
+  echo $person->get_first_name() . "\n";
+}
