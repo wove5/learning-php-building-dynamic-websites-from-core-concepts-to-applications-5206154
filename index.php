@@ -1,5 +1,9 @@
 <?php
-require 'inc/variables.php';
+if (file_exists('inc/functions.php')) {
+  require_once('inc/functions.php');
+}
+
+require('inc/variables.php');
 ?>
 <html>
 
@@ -8,9 +12,9 @@ require 'inc/variables.php';
 </head>
 
 <body>
-  <?php include 'templates/nav.php'; ?>
+  <?php include('templates/nav.php'); ?>
   <h1><?php echo $title; ?></h1>
-  <p><?php echo $description; ?></p>
+  <?php para_print($description); ?>
   <small>By: <?php echo $author; ?></small>
 </body>
 
