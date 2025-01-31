@@ -1,23 +1,17 @@
 <?php
-// While loop for reference: 
-$i = 0;
-while ($i <= 10) {
-  echo "$i \n";
-  $i++;
-}
-
-/*
-for (starting assignment; condition; incrementor) {
-  // some code
-}
-*/
-
-for ($i = 0; $i <= 10; $i++) {
-  echo "$i \n";
-}
-
 $colors = ['red', 'green', 'blue', 'yellow'];
 
-for ($i = 0; $i < sizeof($colors); $i++) {
-  echo $colors[$i] . "\n";
+foreach ($colors as $color) {
+  echo "$color \n";
+}
+
+$home_towns = [
+  'Joe' => 'Middletown, NY',
+  'Erin' => 'West Chester, PA',
+  'Dave' => 'Exton, PA',
+  'Brian' => 'Grand Rapids, MI',
+];
+
+foreach ($home_towns as $name => $town) {
+  echo "$name is from $town \n";
 }
