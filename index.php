@@ -8,3 +8,11 @@
  * 
  * Be sure to use additional parentesis to get the right results! 
  */
+
+$results = [
+  0 => (14 + 82 - (32 / 2)) ** 2,
+  1 => 18 * ((3 / 6) - 9) * 10,
+  2 => 5 * ((12 / 2) - (8 * 4) + (12 * 6)),
+];
+
+print_r($results);
