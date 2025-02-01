@@ -2,8 +2,11 @@
 require_once('functions.php');
 
 if (!empty($_POST)) {
+  array_pop($_POST);
   foreach ($_POST as $label => $value) {
-    if ('submit' != $label) {
+    if (is_array($value)) {
+      echo '<p><strong>' . ucfirst($label) . ':</strong> ' . implode(', ', $value) . '</p>';
+    } else {
       echo '<p><strong>' . ucfirst($label) . ':</strong> ' . $value . '</p>';
     }
   }
@@ -24,6 +27,28 @@ if (!empty($_POST)) {
     <input type="radio" name="reason" id="consult" value="consult" /> <label for="consult">Consult</label>
     <input type="radio" name="reason" id="question" value="question" /> <label for="question">Question</label>
     <input type="radio" name="reason" id="hello" value="hello" /> <label for="hello">Say Hello</label>
+  </div>
+  <div>
+    <p>What topics do you like reading about? (Check all that apply):</p>
+    <input type="checkbox" name="topics[]" id="HTML" value="HTML" /> <label for="HTML">HTML</label>
+    <input type="checkbox" name="topics[]" id="CSS" value="CSS" /> <label for="CSS">CSS</label>
+    <input type="checkbox" name="topics[]" id="PHP" value="PHP" /> <label for="PHP">PHP</label>
+    <input type="checkbox" name="topics[]" id="AI" value="AI" /> <label for="AI">AI</label>
+  </div>
+  <div>
+    <p>What's your favorite movie(s)?</p>
+    <select name="movie[]" id="movie" multiple style="width: 350px; height: 180px;">
+      <option value="Star Wars I">Star Wars I</option>
+      <option value="Star Wars II">Star Wars II</option>
+      <option value="Star Wars III">Star Wars III</option>
+      <option value="Star Wars IV">Star Wars IV</option>
+      <option value="Star Wars V">Star Wars V</option>
+      <option value="Star Wars VI">Star Wars VI</option>
+      <option value="Star Wars VII">Star Wars VII</option>
+      <option value="Star Wars VIII">Star Wars VIII</option>
+      <option value="Star Wars IX">Star Wars IX</option>
+      <option value="none">I don't like movies</option>
+    </select>
   </div>
   <div>
     <label for="message">What's your message?</label>
