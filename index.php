@@ -14,6 +14,11 @@ $form_completed = null;
   <div>
     <?php if (!empty($_POST)) {
       required('Email', $_POST['email']);
+      $regex = '^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$^';
+      if (! preg_match($regex, $_POST['email'])) {
+        echo '<p class="alert">Please enter a valid email address.</p>';
+        $form_completed = false;
+      }
     } ?>
     <label for="name">*Email:</label> <input type="text" name="email" placeholder="Your Email" />
   </div>
