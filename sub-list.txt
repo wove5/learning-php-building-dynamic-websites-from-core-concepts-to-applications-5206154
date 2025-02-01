@@ -1,0 +1,6 @@
+Jane, jane@casabona.org
+Joe C, joe@casabona.org
+Bill, bill@casabona.org
+Kenny, kenny@casabona.org
+Abby C, abby@casabona.org
+Lou C, lou@casabona.org 
