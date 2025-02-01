@@ -1,7 +1,15 @@
 <?php
-var_dump($_POST);
-?>
+require_once('functions.php');
 
+if (!empty($_POST)) {
+  foreach ($_POST as $label => $value) {
+    if ('submit' != $label) {
+      echo '<p><strong>' . ucfirst($label) . ':</strong> ' . $value . '</p>';
+    }
+  }
+}
+
+?>
 <h2>Contact</h2>
 
 <form name="contact" method="POST">
