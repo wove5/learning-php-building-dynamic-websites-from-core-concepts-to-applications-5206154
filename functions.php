@@ -15,3 +15,8 @@ function required($label, $value)
   echo '<p class="alert">' . $label . ' is required.</p>';
   $form_completed = false;
 }
+
+function validate($input)
+{
+  return trim(htmlentities($input));
+}

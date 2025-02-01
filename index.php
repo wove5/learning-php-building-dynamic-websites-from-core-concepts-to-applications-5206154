@@ -1,31 +1,20 @@
 <?php
 require_once('functions.php');
 $form_completed = null;
+
+include('process.php');
 ?>
+
 <h2>Contact</h2>
 
 <form name="contact" method="POST">
   <div>
-    <?php if (!empty($_POST)) {
-      required('Name', $_POST['name']);
-    } ?>
     <label for="name">*Name:</label> <input type="text" name="name" placeholder="Your Name" />
   </div>
   <div>
-    <?php if (!empty($_POST)) {
-      required('Email', $_POST['email']);
-      $regex = '^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$^';
-      if (! preg_match($regex, $_POST['email'])) {
-        echo '<p class="alert">Please enter a valid email address.</p>';
-        $form_completed = false;
-      }
-    } ?>
     <label for="name">*Email:</label> <input type="text" name="email" placeholder="Your Email" />
   </div>
   <div>
-    <?php if (!empty($_POST)) {
-      required('Reason for Contact', $_POST['reason']);
-    } ?>
     <p>*Reason for Contact:</p>
     <input type="radio" name="reason" id="consult" value="consult" checked /> <label for="consult">Consult</label>
     <input type="radio" name="reason" id="question" value="question" /> <label for="question">Question</label>
@@ -54,9 +43,6 @@ $form_completed = null;
     </select>
   </div>
   <div>
-    <?php if (!empty($_POST)) {
-      required('Message', $_POST['message']);
-    } ?>
     <label for="message">*What's your message?</label>
     <textarea name="message"></textarea>
   </div>
@@ -69,17 +55,3 @@ $form_completed = null;
     font-weight: bold;
   }
 </style>
-
-<?php
-
-if (! empty($_POST) && ($form_completed ?? true)) {
-  array_pop($_POST);
-  foreach ($_POST as $label => $value) {
-    if (is_array($value)) {
-      echo '<p><strong>' . ucfirst($label) . ':</strong> ' . implode(', ', $value) . '</p>';
-    } else {
-      echo '<p><strong>' . ucfirst($label) . ':</strong> ' . $value . '</p>';
-    }
-  }
-}
-?>
