@@ -1,17 +1,15 @@
-<?php error_reporting(E_ALL); ?>
+<?php
+include('inc.php');
+$a = 45;
 
-<?php echo "hello"
+$b = array(
+  'red' => 'Stop',
+  'yellow' => 'Slow',
+  'green' => 'Go',
+);
 
-<!DOCTYPE html>
-<html>
+if (empty($a)) {
+  echo '$a is empty.';
+}
 
-<head>
-  <title>HTML</title>
-  <meta name="author" value="Joe Casabona" />
-</head>
-
-<body>
-
-</body>
-
-</html>
+echo $hello;
