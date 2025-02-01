@@ -1,27 +1,17 @@
-<?php
+<?php error_reporting(E_ALL); ?>
 
-// Syntax / Parse Errors
-echo "Hello";
+<?php echo "hello"
 
-echo 'Joe\'s favorite food is pizza.';
+<!DOCTYPE html>
+<html>
 
+<head>
+  <title>HTML</title>
+  <meta name="author" value="Joe Casabona" />
+</head>
 
-// Warnings and Notices
-echo $x;
+<body>
 
-if (true) {
-  echo "This ran!";
-}
+</body>
 
-// Fatal Errors
-echo multiply(4);
-
-//Logic Error
-function multiply($a, $b)
-{
-  return $a + $b;
-}
-
-
-
-echo multiply(5, 2);
+</html>
