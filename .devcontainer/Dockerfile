@@ -4,11 +4,34 @@ FROM mcr.microsoft.com/vscode/devcontainers/php:${VARIANT}
 
 # Install MariaDB client
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y mariadb-client \ 
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y mariadb-client
+
+# RUN apt-get install -y autoconf \
+#     # build-essential \
+#     pkg-config \
+#     libssl-dev \
+#     g++ \
+#     make \
+#     gcc
+#     # php-dev
+
+# Install Xdebug
+# RUN pecl install xdebug
+# # #RUN docker-php-ext-install xdebug
+# RUN docker-php-ext-enable xdebug
 
 # Install php-mysql driver
 RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# RUN apt-get purge -y build-essential autoconf \
+#     && apt-get autoremove -y \
+#     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get clean -y && rm -rf /var/lib/apt/lists/*
+
+# Copy configuration file
+# COPY ./xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
 ARG NODE_VERSION="none"
