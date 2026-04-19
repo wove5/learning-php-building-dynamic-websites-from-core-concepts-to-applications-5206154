@@ -18,6 +18,8 @@ $logic = [
 var_dump($logic);
 
 
-$c = $a and $b; // true
+$c = $a and $b; // c is true
+$d = ($c = $a and $b); // d is false
 
 var_dump($c);
+var_dump($d);
