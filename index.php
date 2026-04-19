@@ -3,6 +3,12 @@
 //$colors = array();
 $colors = array('Red', 'Green', 'Blue', 'Yellow');
 
+$testVar = 'This is a test';
+print $testVar . "\n";
+
+print $colors . "\n";
+print "Colors: $colors\n";
+print $colors[0] . "\n";
 print_r($colors);
 
 echo $colors[2];
@@ -45,6 +51,9 @@ $brothers = [
   ),
 ];
 
-echo $brothers['phil']['age'];
+echo $brothers['phil']['age'] . "\n\n";
+
+print_r($brothers['mike']) . "\n\n";
+print print_r($brothers['mike']) . "\n\n";
 
 print_r($brothers);
