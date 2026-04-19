@@ -1,31 +1,43 @@
 <?php
-if (10 < 1) {
-  echo '<p>we stopped at if</p>';
-} else if (10 < 4) {
-  echo '<p>we stopped at the first else if.</p>';
-} else if (10 < 11) {
-  echo  '<p>we stopped at the second else if</p>';
-} else if (10 < 20) {
-  echo '<p>we stopped at the 3rd else if</p>';
-} else {
-  echo '<p>No conditions are true, we never stopped, so this is the else</p>';
-}
-echo "\n";
+$homepage = true;
+// $homepage = false;
+if ($homepage) : ?>
+  <header>
+    <h1>Welcome to the homepage!</h1>
+    <p>Have a look around.</p>
+  </header>
+<?php else : ?>
+  <?php
+  echo '<h1>Welcome to the site!</h1>';
+  if (10 < 1) {
+    echo '<p>we stopped at if</p>';
+  } else if (10 < 4) {
+    echo '<p>we stopped at the first else if.</p>';
+  } else if (10 < 11) {
+    echo  '<p>we stopped at the second else if</p>';
+  } else if (10 < 20) {
+    echo '<p>we stopped at the 3rd else if</p>';
+  } else {
+    echo '<p>No conditions are true, we never stopped, so this is the else</p>';
+  }
+  echo "\n";
 
-$user_logged_in = false;
+  $user_logged_in = false;
 
-if ($user_logged_in) {
-  echo "Welcome back!";
-} else {
-  echo "Nice to meet you!";
-}
+  if ($user_logged_in) {
+    echo "Welcome back!";
+  } else {
+    echo "Nice to meet you!";
+  }
 
-/*
-$i = 10;
+  $i = 10;
+  // $i = 11;
 
-if (11 == $i) {
-  echo '<h3>Welcome back, user!</h3>';
-} else {
-  echo '<h3>Welcome to the site!</h3>';
-}
-*/
+  if (11 == $i) {
+    echo '<h3>Welcome back, user!</h3>';
+  } else {
+    echo '<h3>Welcome to the site!</h3>';
+  }
+
+?>
+<?php endif; ?>
