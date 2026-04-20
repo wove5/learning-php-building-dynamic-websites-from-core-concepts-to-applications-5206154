@@ -15,7 +15,12 @@
     "vscode": {
       // Set *default* container specific settings.json values on container create.
       "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "[php]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }   
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
@@ -23,8 +28,9 @@
         "brapifra.phpserver",
         "xdebug.php-debug",
         "bmewburn.vscode-intelephense-client",
-        "mrmlnc.vscode-apache"
+        "mrmlnc.vscode-apache",
         // Additional Extensions Here
+        "esbenp.prettier-vscode"
       ]
     }
   },
@@ -38,6 +44,7 @@
   ],
   "onCreateCommand": "echo PS1='\"$ \"' >> ~/.bashrc", //Set Terminal Prompt to $
   // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "npm install -g prettier @prettier/plugin-php",
   // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
   // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "vscode"
