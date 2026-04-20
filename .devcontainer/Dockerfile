@@ -1,14 +1,37 @@
 # [Choice] PHP version (use -bullseye variants on local arm64/Apple Silicon): 8, 8.1, 8.0, 7, 7.4, 7.3, 8-bullseye, 8.1-bullseye, 8.0-bullseye, 7-bullseye, 7.4-bullseye, 7.3-bullseye, 8-buster, 8.1-buster, 8.0-buster, 7-buster, 7.4-buster
-ARG VARIANT=8-bullseye
-FROM mcr.microsoft.com/vscode/devcontainers/php:0-${VARIANT}
+ARG VARIANT=8-bookworm
+FROM mcr.microsoft.com/vscode/devcontainers/php:${VARIANT}
 
 # Install MariaDB client
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y mariadb-client \ 
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y mariadb-client
+
+# RUN apt-get install -y autoconf \
+#     # build-essential \
+#     pkg-config \
+#     libssl-dev \
+#     g++ \
+#     make \
+#     gcc
+#     # php-dev
+
+# Install Xdebug
+# RUN pecl install xdebug
+# # #RUN docker-php-ext-install xdebug
+# RUN docker-php-ext-enable xdebug
 
 # Install php-mysql driver
 RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# RUN apt-get purge -y build-essential autoconf \
+#     && apt-get autoremove -y \
+#     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get clean -y && rm -rf /var/lib/apt/lists/*
+
+# Copy configuration file
+# COPY ./xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
 ARG NODE_VERSION="none"
