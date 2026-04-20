@@ -21,6 +21,12 @@ echo "$message \n";
 
 //echo $name . "\n";
 
-$name = $name ?? "Phil";
+$name = $name ?? "Phil\n";
+
+echo $name;
+
+$name = "";
+
+$name = $name ?: "Alice";
 
 echo $name;
