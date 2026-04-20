@@ -19,6 +19,8 @@ switch ($turtle) {
     $bandana = 'red';
 }
 
+echo "$bandana \n";
+
 $bandana = match ($turtle) {
   'Leo' => 'blue',
   'Raph' => 'red',
