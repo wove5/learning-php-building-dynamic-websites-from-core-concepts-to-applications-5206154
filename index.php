@@ -8,3 +8,21 @@
  * 
  * Be sure to use additional parentesis to get the right results! 
  */
+
+$results = [
+    pow((14 + 82 - 32 / 2), 2),
+    18 * (3 / 6 -9) * 10,
+    5 * (12 /2 -8 * 4 +12*6)
+];
+
+$results2 = array(
+    (14 + 82 - 32 / 2)**2,
+    18 * (3 / 6 -9) * 10,
+    5 * (12 /2 -8 * 4 +12*6),
+);
+
+print_r($results);
+print_r($results2);
+print $results[0] . "\n";
+print $results[1] . "\n";
+print $results[2] . "\n";
