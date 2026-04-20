@@ -1,32 +1,34 @@
 <?php
-$turtle = 'Leo';
-$bandana = '';
+// $status = 0;
+$status = rand(0, 2);
 
-switch ($turtle) {
-  case 'Leo':
-    $bandana = 'blue';
-    break;
-  case 'Raph':
-    $bandana = 'red';
-    break;
-  case 'Mike':
-    $bandana = 'orange';
-    break;
-  case 'Don':
-    $bandana = 'purple';
-    break;
-  default:
-    $bandana = 'red';
-}
+$msg0 = 'You must log in or create an account.';
+$msg1 = 'Welcome back!';
+$msg2 = 'Hello, you are logged in as Admin.';
 
-echo "$bandana \n";
-
-$bandana = match ($turtle) {
-  'Leo' => 'blue',
-  'Raph' => 'red',
-  'Mikey' => 'orange',
-  'Don' => 'purple',
-  default => 'red'
+$message = match ($status) {
+  0 => $msg0,
+  1 => $msg1,
+  2 => $msg2,
+  default => 'Unknown'
 };
+print "<h1>$message</h1>\n";
 
-echo "$bandana \n";
+// $status = 1;
+$message = match ($status) {
+  0 => $msg0,
+  1 => $msg1,
+  2 => $msg2,
+  default => 'Unknown'
+};
+print "<h1>$message</h1>\n";
+
+// $status = 2;
+$message = match ($status) {
+  0 => $msg0,
+  1 => $msg1,
+  2 => $msg2,
+  default => 'Unknown'
+};
+print "<h1>$message</h1>\n";
+echo "status was $status\n";
